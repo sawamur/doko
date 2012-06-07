@@ -1,10 +1,10 @@
 # doko
 
-Japanese address retriever
+Japanese address retriever. 
 
 ## Usage
 
-```
+```ruby
  # from string
 addrs = Doko.parse("..\n住所\n 東京都港区芝浦3-41 \n..\n...")
 p addrs #=> ["東京都港区芝浦3-41"]
@@ -12,6 +12,15 @@ p addrs #=> ["東京都港区芝浦3-41"]
  # from url 
 addrs = Doko.parse("http://r.tabelog.com/tokyo/A....")
 p addrs #=> ["神奈川県横浜市中区.."]
+```
+
+"doko?" means "where?" in japanese.
+
+
+## Install
+
+```
+gem install doko
 ```
 
 
