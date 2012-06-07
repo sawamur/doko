@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "doko.gemspec",
     "lib/doko.rb",
     "spec/doko_spec.rb",
     "spec/spec_helper.rb"
