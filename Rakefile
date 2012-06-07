@@ -17,9 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "doko"
   gem.homepage = "http://github.com/sawamur/doko"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "m-sawa@nttr.co.jp"
+  gem.summary = %Q{Japanese address retierver}
+  gem.description = %Q{Japanese address retierver}
+  gem.email = "masaki.sw@gmail.com"
   gem.authors = ["Masaki Sawamura"]
   # dependencies defined in Gemfile
 end
