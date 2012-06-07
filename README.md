@@ -4,7 +4,7 @@ Japanese address retriever. "doko?" means "where?" in japanese.
 
 ## Usage
 
-```
+```ruby
  # from string
 addrs = Doko.parse("..\n住所\n 東京都港区芝浦3-41 \n..\n...")
 p addrs #=> ["東京都港区芝浦3-41"]
