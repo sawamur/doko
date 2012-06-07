@@ -1,6 +1,6 @@
 # doko
 
-Japanese address retriever. "doko?" means "where?" in japanese.
+Japanese address retriever. 
 
 ## Usage
 
@@ -14,16 +14,15 @@ addrs = Doko.parse("http://r.tabelog.com/tokyo/A....")
 p addrs #=> ["神奈川県横浜市中区.."]
 ```
 
+"doko?" means "where?" in japanese.
+
 
 ## Install
 
-Gemfile
-
 ```
-gem 'doko',:git => 'git://github.com/sawamur/doko.git'
+gem install doko
 ```
 
-then `bundle install`
 
 ## Contributing to doko
  
