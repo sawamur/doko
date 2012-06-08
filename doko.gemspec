@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "doko"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Masaki Sawamura"]
-  s.date = "2012-06-07"
-  s.description = "Japanese address retierver"
+  s.date = "2012-06-08"
+  s.description = "Japanese address retriever"
   s.email = "masaki.sw@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "Japanese address retierver"
+  s.summary = "Japanese address retriever"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
