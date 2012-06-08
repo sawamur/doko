@@ -10,12 +10,10 @@ describe "Doko" do
     addrs.first.should == "東京都新宿区新宿3-38-1 ルミネエスト7F"
   end
 
-
   it "should return addr from tabelog url" do
       addrs = Doko.parse("http://r.tabelog.com/kanagawa/A1401/A140104/14001924/")
       addrs.first.should == "神奈川県横浜市中区海岸通1-1"
   end
-
   
   it "should return from 30min" do
     addrs = Doko.parse("http://30min.jp/place/23481")
@@ -39,5 +37,9 @@ describe "Doko" do
 
   it do
     Doko.parse("http://www.ynu.ac.jp/index.html").first.should == "神奈川県横浜市保土ケ谷区常盤台79-1"
+  end
+
+  it do
+    Doko.parse("http://www.nissan-stadium.jp/").first.should == "横浜市港北区小机町3300"
   end
 end

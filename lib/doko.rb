@@ -23,6 +23,7 @@ class Doko
     body.tr!("ー","-")
     body.tr!("（）","()")
     body.tr!("、",",")
+    body.tr!("　"," ")
     
     addrs = body.scan(/\b([^\s,()]{2,3}(都|道|府|県)[^\s,()]{1,8}(市|区|町|村).+)/).map{ |m|
       line = m[0]
@@ -33,7 +34,7 @@ class Doko
       line
     }
     if addrs.empty?
-      addrs = body.scan(/([^\s][0,6](市|区).{2,8}(町|村){2,10}\d)/).map{ |m|
+      addrs = body.scan(/([^\s]{1,6}(市|区).{2,8}(区|町|村)[^\s,()]{2,10}\d)/).map{ |m|
         line = m[0]
         line.gsub!(/住所(\s|\n)?/,"")
         line.gsub!(/〒\d{3}-\d{4}　?/,"")
