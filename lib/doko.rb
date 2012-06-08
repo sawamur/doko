@@ -14,11 +14,15 @@ class Doko
     if str.match( /^#{URI.regexp}$/ )
       str = open(str).read
     end
-    @doc =  Nokogiri::HTML(str)
+    if str.match(/<html/)
+      @text =  (Nokogiri::HTML(str)/"body").text
+    else
+      @text = str
+    end
   end
   
   def parse
-    body = (@doc/"body").text
+    body = @text
     body.tr!("０-９","0-9")
     body.tr!("ー","-")
     body.tr!("（）","()")
