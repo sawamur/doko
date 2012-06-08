@@ -36,4 +36,8 @@ describe "Doko" do
     addrs = Doko.parse("http://travel.rakuten.co.jp/HOTEL/68236/68236_std.html")
     addrs.first.should == "熊本県阿蘇郡南阿蘇村河陽4673-18"
   end
+
+  it do
+    Doko.parse("http://www.ynu.ac.jp/index.html").first.should == "神奈川県横浜市保土ケ谷区常盤台79-1"
+  end
 end
