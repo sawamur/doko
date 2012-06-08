@@ -42,4 +42,8 @@ describe "Doko" do
   it do
     Doko.parse("http://www.nissan-stadium.jp/").first.should == "横浜市港北区小机町3300"
   end
+
+  it do
+    Doko.parse("http://atnd.org/events/28384").first.should == "東京都千代田区神田駿河台2-3 DH2001Bldg."
+  end
 end
