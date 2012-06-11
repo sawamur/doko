@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/sawamur/doko"
   gem.license = "MIT"
   gem.summary = %Q{Japanese address retriever}
-  gem.description = %Q{Japanese address retriever}
+  gem.description = %Q{retrieve japanese address line from a web page or a string}
   gem.email = "masaki.sw@gmail.com"
   gem.authors = ["Masaki Sawamura"]
   # dependencies defined in Gemfile
