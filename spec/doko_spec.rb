@@ -6,7 +6,6 @@ require 'open-uri'
 describe "Doko" do
 
   describe "parse" do
-      
     it "should retrieve address from string"  do
       Doko.parse("ここは\n東京都港区芝浦3-4-1\nです").first.should == "東京都港区芝浦3-4-1"
     end
@@ -60,6 +59,10 @@ describe "Doko" do
     
     it do 
       Doko.parse("http://www.stadium2002.com/stadium/index.php").first.should == "さいたま市緑区中野田500"
+    end
+
+    it do
+      Doko.parse("http://www.canalcafe.jp/").first.should == "東京都新宿区神楽坂1-9"
     end
   end
 

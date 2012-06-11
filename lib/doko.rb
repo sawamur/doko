@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# -*- code:utf-8 -*-
 
 require 'nokogiri'
 require 'open-uri'
@@ -52,6 +51,7 @@ class Doko
     body.tr!("、",",")
     body.tr!("　"," ")
     body.tr!("．",".")
+    body.tr!("：",":")
     blackchars =  ",()\n"
 
     addrs = body.scan(/\b([^\s,()]{2,3}(都|道|府|県)[^\s,()]{1,8}(市|区|町|村)[^#{blackchars}]+)/).map{ |m|
@@ -76,10 +76,11 @@ class Doko
     line.gsub!(/\s+$/,"")
     line.gsub!(/\s?電話:.+$/,"")
     line.gsub!("[MAP]","")
-    line.gsub!(/(TEL|FAX):\d{2,4}-\d{2,4}-\d{2,4}/,"")
+    line.gsub!(/(TEL|FAX):\d{2,4}-\d{2,4}-\d{2,4}.+/,"")
     line.gsub!(/(\dー)*\d/) do |t|
       t.tr("ー","-")
     end
+    line.sub!(/\s$/,"")
     line
   end
 end
