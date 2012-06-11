@@ -1,0 +1,13 @@
+
+require 'sinatra'
+require 'doko'
+
+get '/' do
+  erb :index
+end
+
+post '/' do
+  @url = params[:url]
+  @addrs = Doko.parse(@url)
+  erb :index
+end

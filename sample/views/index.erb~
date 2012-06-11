@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>doko - japanese address retriever </title>
+    <style type="text/css">
+      body {
+      font-family: helvetica,sans-serif;
+      width: 800px;
+      margin: 0 auto;
+      
+      }
+      p {
+      font-size: 18px;
+      line-height: 20px;
+      }
+      h1 {
+       font-size: 100px;
+      margin: 10px 0;
+      }
+      h2 {
+      padding: 0;
+      margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://github.com/sawamur/doko"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <h1>Doko</h1>
+    <p>
+      Japanese address retriever. <a href="https://github.com/sawamur/doko">github</a> <br>
+
+    </p>
+
+    <form action="/" method="post">
+      <h2>demo</h2>
+      ページ内から住所を抽出します。(日本国内のみ)
+      <p>
+      URL:<input type="text" size="60" name="url" value="<%=@url %>" placeholder=""><input type="submit" value="GO">
+      </p>
+    </form>
+    
+    <p>
+    <% if @addrs %>
+    <ul>
+    <% @addrs.each do |a| %>
+    <li><%=a %></li>
+    <% end %>
+    </ul>
+    <% end %>
+    </p>
+
+  </body>
+</html>
+  

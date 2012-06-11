@@ -17,6 +17,10 @@ p addrs #=> ["神奈川県横浜市中区.."]
 "doko?" means "where?" in japanese.
 
 
+## Demo
+
+http://doko.tamac.io
+
 ## Install
 
 ```
