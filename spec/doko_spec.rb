@@ -4,7 +4,6 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require 'open-uri'
 
 describe "Doko" do
-
   it "should retrieve address from string"  do
     Doko.parse("ここは\n東京都港区芝浦3-4-1\nです").first.should == "東京都港区芝浦3-4-1"
   end
@@ -49,5 +48,10 @@ describe "Doko" do
 
   it do
     Doko.parse("http://atnd.org/events/28384").first.should == "東京都千代田区神田駿河台2-3 DH2001Bldg."
+  end
+
+  it do
+    page = open("http://www.nttr.co.jp/corporate_profile/index.htm").read.encode("utf-8")
+    Doko.parse(page).first.should == "東京都港区芝浦3-4-1 グランパークタワー"
   end
 end

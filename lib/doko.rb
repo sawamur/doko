@@ -14,7 +14,7 @@ class Doko
     if str.match( /^#{URI.regexp}$/ )
       str = open(str).read
     end
-    if str.match(/<html/)
+    if str.match(/<html/i)
       @text =  (Nokogiri::HTML(str)/"body").text
     else
       @text = str
@@ -24,35 +24,39 @@ class Doko
   def parse
     body = @text
     body.tr!("０-９","0-9")
-    body.tr!("ー","-")
     body.tr!("（）","()")
     body.tr!("、",",")
     body.tr!("　"," ")
     body.tr!("．",".")
-    
     blackchars =  ",()\n"
-    
+
     addrs = body.scan(/\b([^\s,()]{2,3}(都|道|府|県)[^\s,()]{1,8}(市|区|町|村)[^#{blackchars}]+)/).map{ |m|
-      line = m[0]
-      line.gsub!(/住所(\s|\n)?/,"")
-      line.gsub!(/〒\d{3}-\d{4}　?/,"")
-      line.gsub!(/\s+$/,"")
-      line.gsub!(/\s?電話:.+$/,"")
-      line
+      clean(m[0])
     }
     if addrs.empty?
       addrs = body.scan(/([^\s]{1,6}(市|区).{2,8}(区|町|村)[^\s,()]{2,10}\d)/).map{ |m|
-        line = m[0]
-        line.gsub!(/住所(\s|\n)?/,"")
-        line.gsub!(/〒\d{3}-\d{4}　?/,"")
-        line.gsub!("[MAP]","")
-        line.gsub!(/(TEL|FAX):\d{2,4}-\d{2,4}-\d{2,4}/,"")
-        line
+        clean(m[0])
       }
     end
     addrs.select{ |a|
       !a.match(/を/)
     }
+  end
+
+  private
+
+
+  def clean(line)
+    line.gsub!(/住所(\s|\n)?/,"")
+    line.gsub!(/〒\d{3}-\d{4}　?/,"")
+    line.gsub!(/\s+$/,"")
+    line.gsub!(/\s?電話:.+$/,"")
+    line.gsub!("[MAP]","")
+    line.gsub!(/(TEL|FAX):\d{2,4}-\d{2,4}-\d{2,4}/,"")
+    line.gsub!(/(\dー)*\d/) do |t|
+      t.tr("ー","-")
+    end
+    line
   end
 end
 
