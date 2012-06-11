@@ -38,15 +38,17 @@
       </p>
     </form>
     
-    <p>
+
     <% if @addrs %>
-    <ul>
-    <% @addrs.each do |a| %>
-    <li><%=a %></li>
-    <% end %>
-    </ul>
-    <% end %>
+    <p style="border-top:1px solid gray">
+      addresses in <a href="<%=@url %>"><%=@url %></a> are:
+      <ul>
+	<% @addrs.each do |a| %>
+	<li><%=a %></li>
+	<% end %>
+      </ul>
     </p>
+    <% end %>
 
   </body>
 </html>
