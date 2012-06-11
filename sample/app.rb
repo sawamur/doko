@@ -9,6 +9,6 @@ end
 
 post '/' do
   @url = params[:url]
-  @addrs = Doko.parse(@url)
+  @addrs = Doko.deep(@url)
   erb :index
 end

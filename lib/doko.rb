@@ -10,8 +10,32 @@ class Doko
     self.new(str).parse
   end
 
+  def self.deep(url)
+    addrs = parse(url)
+    if addrs.empty?
+      addrs = links(url).map{ |u|
+        parse(u)
+      }.flatten
+    end
+    addrs
+  end
+
+  def self.links(url)
+    uri = URI.parse(url)
+    out = []
+    doc = Nokogiri::HTML(open(url).read)
+    doc.search("a").each do |a|
+      if a[:href].match(/access/) && !a[:href].match(/http/)
+        out << uri + a[:href]
+      end
+    end
+    out.uniq
+  end
+
   def initialize(str)
-    if str.match( /^#{URI.regexp}$/ )
+    if str.kind_of? URI 
+      str = open(str.to_s).read
+    elsif str.match( /^#{URI.regexp}$/ )
       str = open(str).read
     end
     if str.match(/<html/i)
