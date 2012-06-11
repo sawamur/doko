@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "doko"
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Masaki Sawamura"]
-  s.date = "2012-06-08"
+  s.date = "2012-06-11"
   s.description = "Japanese address retriever"
   s.email = "masaki.sw@gmail.com"
   s.extra_rdoc_files = [
@@ -27,6 +27,10 @@ Gem::Specification.new do |s|
     "VERSION",
     "doko.gemspec",
     "lib/doko.rb",
+    "sample/Gemfile",
+    "sample/Gemfile.lock",
+    "sample/app.rb",
+    "sample/views/index.erb",
     "spec/doko_spec.rb",
     "spec/spec_helper.rb"
   ]
