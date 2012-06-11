@@ -67,5 +67,9 @@ describe "Doko" do
     it do
       Doko.deep("http://www.risonare-atami.com/").first.should == "静岡県熱海市水口町2-13-1"
     end
+
+    it do 
+      Doko.deep("http://www.yokohama-akarenga.jp/index.html").should be_empty
+    end
   end
 end

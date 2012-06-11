@@ -25,7 +25,7 @@ class Doko
     out = []
     doc = Nokogiri::HTML(open(url).read)
     doc.search("a").each do |a|
-      if a[:href].match(/access/) && !a[:href].match(/http/)
+      if a[:href] && a[:href].match(/access/) && !a[:href].match(/http/)
         out << uri + a[:href]
       end
     end
