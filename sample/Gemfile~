@@ -1,4 +1,0 @@
-
-
-gem 'sinatra'
-gem 'doko',:path =>  "/Users/user/Dropbox/Work/gems/doko"
