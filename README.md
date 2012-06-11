@@ -13,7 +13,7 @@ p addrs #=> ["東京都港区芝浦3-41"]
 addrs = Doko.parse("http://r.tabelog.com/tokyo/A....")
 p addrs #=> ["神奈川県横浜市中区.."]
 
- # from web site
+ # from a web site
  addrs = Doko.deep("http://foo-bar.com/")
  p addrs #=> ["東京都.."]  # this is from foo-bar.com/access/index.htm ,for example
 ```
