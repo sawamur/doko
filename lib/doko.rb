@@ -34,7 +34,7 @@ class Doko
       clean(m[0])
     }
     if addrs.empty?
-      addrs = body.scan(/([^\s]{1,6}(市|区).{2,8}(区|町|村)[^\s,()]{2,10}\d)/).map{ |m|
+      addrs = body.scan(/([^\s]{1,6}(市|区).{1,8}(区|町|村)[^\s,()]{2,10}\d)/).map{ |m|
         clean(m[0])
       }
     end
