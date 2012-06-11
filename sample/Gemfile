@@ -1,4 +1,4 @@
-
+source :gemcutter
 
 gem 'sinatra'
 gem 'doko'
