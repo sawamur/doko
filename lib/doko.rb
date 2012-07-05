@@ -9,20 +9,25 @@ class Doko
     self.new(str).parse
   end
 
-  def self.deep(url)
-    addrs = parse(url)
+  def self.deep(str,base_uri=nil)
+    addrs = parse(str)
     if addrs.empty?
-      addrs = links(url).map{ |u|
+      addrs = links(str,base_uri).map{ |u|
         parse(u)
       }.flatten
     end
     addrs
   end
 
-  def self.links(url)
-    uri = URI.parse(url)
+  def self.links(str,base_uri=nil)
     out = []
-    doc = Nokogiri::HTML(open(url).read)
+    if str.match( /^#{URI.regexp}$/ )
+      uri = URI.parse(str)
+      doc = Nokogiri::HTML(open(uri).read)
+    elsif str.kind_of? String
+      uri = URI.parse(base_uri)
+      doc = Nokogiri::HTML(str)
+    end
     doc.search("a").each do |a|
       if a[:href] && a[:href].match(/access/) && !a[:href].match(/http/)
         out << uri + a[:href]
@@ -81,6 +86,7 @@ class Doko
       t.tr("ー","-")
     end
     line.sub!(/\s$/,"")
+    line.gsub!(/\s{3,}+.+$/,"")
     line
   end
 end

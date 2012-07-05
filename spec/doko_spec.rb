@@ -6,6 +6,7 @@ require 'open-uri'
 describe "Doko" do
 
   describe "parse" do
+
     it "should retrieve address from string"  do
       Doko.parse("ここは\n東京都港区芝浦3-4-1\nです").first.should == "東京都港区芝浦3-4-1"
     end
@@ -69,6 +70,12 @@ describe "Doko" do
   describe "deep" do
     it do
       Doko.deep("http://www.risonare-atami.com/").first.should == "静岡県熱海市水口町2-13-1"
+    end
+
+    it "can pase from page html" do
+      url = "http://www.risonare-atami.com/"
+      page = open(url).read
+      Doko.deep(page,url).first.should == "静岡県熱海市水口町2-13-1"
     end
 
     it do 
